@@ -1,29 +1,31 @@
-/* הגדרות צבעים עדינים למצב בהיר */
+/* הגדרות מצב בהיר – מעוצב ונקי */
 :root {
-    --bg-color: #f7f5fa;
+    --bg-color: #f4f4f9;
     --card-bg: #ffffff;
-    --text-color: #2d2b38;
-    --heading-color: #1f1d2b;
-    --text-muted: #6b677a;
-    --primary-color: #7c3aed;
-    --primary-hover: #6d28d9;
-    --tag-bg: #f3e8ff;
-    --tag-text: #6b21a8;
-    --border-color: #e5e0eb;
+    --text-color: #4b4b61;
+    --heading-color: #1e1e2f;
+    --text-muted: #6c6c84;
+    --primary-color: #6366f1;
+    --primary-hover: #4f46e5;
+    --tag-bg: #e0e7ff;
+    --tag-text: #3730a3;
+    --border-color: #e2e8f0;
+    --shadow-color: rgba(99, 102, 241, 0.12);
 }
 
-/* הגדרות מצב כהה עם ניגודיות מצוינת וטקסטים בהירים ברורים */
+/* הגדרות מצב כהה – ניגודיות מובטחת, טקסט לבן וברור לחלוטין לכותרות */
 #dark-mode-toggle:checked ~ .page-wrapper {
-    --bg-color: #0f111a;
-    --card-bg: #1a1b26;
-    --text-color: #a9b1d6;
-    --heading-color: #c0caf5;
-    --text-muted: #9aa5ce;
-    --primary-color: #bb9af7;
-    --primary-hover: #7aa2f7;
-    --tag-bg: #24283b;
-    --tag-text: #7dcfff;
-    --border-color: #2d3148;
+    --bg-color: #0b0f19;
+    --card-bg: #111827;
+    --text-color: #9ca3af;
+    --heading-color: #ffffff; /* כותרות לבנות בולטות לחלוטין ב-Dark Mode */
+    --text-muted: #9ca3af;
+    --primary-color: #818cf8;
+    --primary-hover: #6366f1;
+    --tag-bg: #1f2937;
+    --tag-text: #c7d2fe;
+    --border-color: #374151;
+    --shadow-color: rgba(0, 0, 0, 0.5);
 }
 
 /* הסתרת תיבת הסימון */
@@ -36,23 +38,23 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
 body {
     background-color: var(--bg-color);
     color: var(--text-color);
-    transition: background-color 0.3s ease, color 0.3s ease;
+    transition: background-color 0.4s ease, color 0.4s ease;
     min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px;
+    padding: 30px 15px;
 }
 
 .page-wrapper {
     width: 100%;
-    max-width: 700px;
+    max-width: 750px;
 }
 
 /* כפתור החלפת מצב תצוגה */
@@ -66,17 +68,17 @@ body {
     background-color: var(--card-bg);
     color: var(--heading-color);
     border: 1px solid var(--border-color);
-    padding: 8px 16px;
-    border-radius: 20px;
+    padding: 8px 18px;
+    border-radius: 30px;
     cursor: pointer;
     font-size: 14px;
-    font-weight: bold;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-    transition: all 0.2s ease;
+    font-weight: 600;
+    box-shadow: 0 4px 12px var(--shadow-color);
+    transition: all 0.3s ease;
 }
 
 .toggle-label:hover {
-    opacity: 0.85;
+    transform: translateY(-2px);
 }
 
 .toggle-label .dark-text {
@@ -96,27 +98,27 @@ body {
 /* כרטיס הביקור הראשי */
 .card-container {
     background-color: var(--card-bg);
-    border-radius: 16px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.06);
-    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px var(--shadow-color);
+    padding: 45px;
     border: 1px solid var(--border-color);
-    transition: background-color 0.3s ease, border-color 0.3s ease;
+    transition: background-color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
 }
 
 /* אזור פרופיל */
 .profile-section {
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 35px;
 }
 
 .avatar-container {
-    width: 130px;
-    height: 130px;
+    width: 135px;
+    height: 135px;
     margin: 0 auto 20px auto;
     border-radius: 50%;
     overflow: hidden;
-    border: 3px solid var(--primary-color);
-    box-shadow: 0 4px 12px rgba(124, 58, 237, 0.2);
+    border: 4px solid var(--primary-color);
+    box-shadow: 0 8px 20px rgba(99, 102, 241, 0.25);
 }
 
 .profile-img {
@@ -125,111 +127,120 @@ body {
     object-fit: cover;
 }
 
-/* וידוא שכל הכותרות הראשיות והשמות תמיד בהירים וברורים ב-Dark Mode */
-.profile-section h1, 
-.experience-section h2, 
-.skills-section h2,
-.job-item h3 {
-    color: var(--heading-color);
+/* הגדרת צבע כותרות מפורשת שפותרת את בעיית האפור במצב כהה */
+h1, h2, h3 {
+    color: var(--heading-color) !important;
+    transition: color 0.4s ease;
 }
 
 .profile-section h1 {
-    font-size: 28px;
-    margin-bottom: 8px;
+    font-size: 30px;
+    margin-bottom: 6px;
+    font-weight: 700;
 }
 
 .profile-section .title {
     font-size: 16px;
     color: var(--primary-color);
-    font-weight: bold;
-    margin-bottom: 15px;
+    font-weight: 700;
+    margin-bottom: 18px;
 }
 
 .profile-section .bio {
     font-size: 15px;
     color: var(--text-muted);
-    line-height: 1.6;
-    max-width: 550px;
-    margin: 0 auto 20px auto;
+    line-height: 1.7;
+    max-width: 580px;
+    margin: 0 auto 25px auto;
 }
 
-/* כפתורי יצירת קשר */
+/* כפתורי יצירת קשר משודרגים */
 .contact-links {
     display: flex;
     justify-content: center;
-    gap: 10px;
+    gap: 12px;
     flex-wrap: wrap;
 }
 
 .btn {
     background-color: var(--primary-color);
     color: #ffffff;
-    padding: 10px 18px;
-    border-radius: 8px;
+    padding: 11px 20px;
+    border-radius: 10px;
     text-decoration: none;
     font-size: 14px;
-    font-weight: bold;
-    transition: background-color 0.2s ease;
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.2);
+    transition: all 0.25s ease;
 }
 
 .btn:hover {
     background-color: var(--primary-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(99, 102, 241, 0.35);
 }
 
 /* אזור ניסיון */
 .experience-section {
-    margin-top: 30px;
+    margin-top: 35px;
     border-top: 1px solid var(--border-color);
-    padding-top: 25px;
+    padding-top: 30px;
 }
 
 .experience-section h2, .skills-section h2 {
-    font-size: 20px;
-    margin-bottom: 15px;
+    font-size: 21px;
+    margin-bottom: 20px;
+    font-weight: 700;
 }
 
 .job-item {
-    margin-bottom: 20px;
+    margin-bottom: 22px;
 }
 
 .job-item h3 {
-    font-size: 16px;
+    font-size: 17px;
+    font-weight: 600;
 }
 
 .job-date {
     font-size: 13px;
     color: var(--primary-color);
-    font-weight: bold;
+    font-weight: 700;
     display: block;
-    margin-bottom: 4px;
+    margin-bottom: 5px;
 }
 
 .job-item p {
     font-size: 14px;
     color: var(--text-muted);
-    line-height: 1.5;
+    line-height: 1.6;
 }
 
 /* אזור כישורים טכניים */
 .skills-section {
-    margin-top: 25px;
+    margin-top: 30px;
     border-top: 1px solid var(--border-color);
-    padding-top: 20px;
+    padding-top: 25px;
 }
 
 .skills-grid {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
+    gap: 10px;
 }
 
 .skill-tag {
     background-color: var(--tag-bg);
     color: var(--tag-text);
-    padding: 6px 12px;
-    border-radius: 6px;
+    padding: 7px 14px;
+    border-radius: 8px;
     font-size: 13px;
-    font-weight: bold;
+    font-weight: 600;
+    transition: transform 0.2s ease;
+}
+
+.skill-tag:hover {
+    transform: scale(1.05);
 }
 
 /* רספונסיביות למובייל */
@@ -238,7 +249,7 @@ body {
         padding: 10px;
     }
     .card-container {
-        padding: 20px;
+        padding: 22px;
     }
     .contact-links {
         flex-direction: column;
