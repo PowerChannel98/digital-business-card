@@ -1,4 +1,4 @@
-/* פלטת צבעים פסטלית וחמימה באמצעות משתני CSS */
+
 :root {
     --bg-color: #FFF8F3;
     --card-bg: #FFFFFF;
@@ -14,7 +14,6 @@
     --shadow-color: rgba(142, 92, 112, 0.08);
 }
 
-/* מצב כהה קסום ונעים לעין */
 #dark-mode-toggle:checked ~ .page-wrapper {
     --bg-color: #261E23;
     --card-bg: #352B31;
