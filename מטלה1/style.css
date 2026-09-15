@@ -1,0 +1,250 @@
+/* הגדרות צבעים עדינים למצב בהיר */
+:root {
+    --bg-color: #f7f5fa;
+    --card-bg: #ffffff;
+    --text-color: #2d2b38;
+    --heading-color: #1f1d2b;
+    --text-muted: #6b677a;
+    --primary-color: #7c3aed;
+    --primary-hover: #6d28d9;
+    --tag-bg: #f3e8ff;
+    --tag-text: #6b21a8;
+    --border-color: #e5e0eb;
+}
+
+/* הגדרות מצב כהה עם ניגודיות מצוינת וטקסטים בהירים ברורים */
+#dark-mode-toggle:checked ~ .page-wrapper {
+    --bg-color: #0f111a;
+    --card-bg: #1a1b26;
+    --text-color: #a9b1d6;
+    --heading-color: #c0caf5;
+    --text-muted: #9aa5ce;
+    --primary-color: #bb9af7;
+    --primary-hover: #7aa2f7;
+    --tag-bg: #24283b;
+    --tag-text: #7dcfff;
+    --border-color: #2d3148;
+}
+
+/* הסתרת תיבת הסימון */
+.toggle-checkbox {
+    display: none;
+}
+
+/* איפוס ועיצוב כללי */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.page-wrapper {
+    width: 100%;
+    max-width: 700px;
+}
+
+/* כפתור החלפת מצב תצוגה */
+.site-header {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 15px;
+}
+
+.toggle-label {
+    background-color: var(--card-bg);
+    color: var(--heading-color);
+    border: 1px solid var(--border-color);
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    transition: all 0.2s ease;
+}
+
+.toggle-label:hover {
+    opacity: 0.85;
+}
+
+.toggle-label .dark-text {
+    display: none;
+}
+.toggle-label .light-text {
+    display: inline;
+}
+
+#dark-mode-toggle:checked ~ .page-wrapper .toggle-label .dark-text {
+    display: inline;
+}
+#dark-mode-toggle:checked ~ .page-wrapper .toggle-label .light-text {
+    display: none;
+}
+
+/* כרטיס הביקור הראשי */
+.card-container {
+    background-color: var(--card-bg);
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+    padding: 40px;
+    border: 1px solid var(--border-color);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+/* אזור פרופיל */
+.profile-section {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.avatar-container {
+    width: 130px;
+    height: 130px;
+    margin: 0 auto 20px auto;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid var(--primary-color);
+    box-shadow: 0 4px 12px rgba(124, 58, 237, 0.2);
+}
+
+.profile-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* וידוא שכל הכותרות הראשיות והשמות תמיד בהירים וברורים ב-Dark Mode */
+.profile-section h1, 
+.experience-section h2, 
+.skills-section h2,
+.job-item h3 {
+    color: var(--heading-color);
+}
+
+.profile-section h1 {
+    font-size: 28px;
+    margin-bottom: 8px;
+}
+
+.profile-section .title {
+    font-size: 16px;
+    color: var(--primary-color);
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.profile-section .bio {
+    font-size: 15px;
+    color: var(--text-muted);
+    line-height: 1.6;
+    max-width: 550px;
+    margin: 0 auto 20px auto;
+}
+
+/* כפתורי יצירת קשר */
+.contact-links {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    background-color: var(--primary-color);
+    color: #ffffff;
+    padding: 10px 18px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    transition: background-color 0.2s ease;
+}
+
+.btn:hover {
+    background-color: var(--primary-hover);
+}
+
+/* אזור ניסיון */
+.experience-section {
+    margin-top: 30px;
+    border-top: 1px solid var(--border-color);
+    padding-top: 25px;
+}
+
+.experience-section h2, .skills-section h2 {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.job-item {
+    margin-bottom: 20px;
+}
+
+.job-item h3 {
+    font-size: 16px;
+}
+
+.job-date {
+    font-size: 13px;
+    color: var(--primary-color);
+    font-weight: bold;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.job-item p {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.5;
+}
+
+/* אזור כישורים טכניים */
+.skills-section {
+    margin-top: 25px;
+    border-top: 1px solid var(--border-color);
+    padding-top: 20px;
+}
+
+.skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.skill-tag {
+    background-color: var(--tag-bg);
+    color: var(--tag-text);
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+/* רספונסיביות למובייל */
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+    .card-container {
+        padding: 20px;
+    }
+    .contact-links {
+        flex-direction: column;
+    }
+    .btn {
+        width: 100%;
+        text-align: center;
+    }
+}
